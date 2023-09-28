@@ -10,7 +10,7 @@ const IngredientForm = React.memo(props => {
 
   const submitHandler = event => {
     event.preventDefault();
-    // ...
+    props.addIngredient({title: titleState, amount: amountState});
   };
 
   return (
@@ -46,6 +46,7 @@ const IngredientForm = React.memo(props => {
             <input type="number" id="amount" value={amountState} onChange={e => setAmountState(e.target.value)} />
           </div>
           <div className="ingredient-form__actions">
+            {/* The `type="submit"` attribute in <button/> causes the `onSubmit` <form> attribute to be called */}
             <button type="submit">Add Ingredient</button>
           </div>
         </form>
