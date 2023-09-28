@@ -17,13 +17,19 @@ function Ingredients() {
     });
   }
 
+  function removeIngredientHandler(ingredientId) {
+    setIngredientsState(prevIngredients => {
+      return prevIngredients.filter(ingredient => ingredient.id !== ingredientId);
+    });
+  }
+
   return (
     <div className="App">
       <IngredientForm addIngredient={addIngredient}/>
 
       <section>
         <Search />
-        <IngredientList ingredients={ingredientsState} onRemoveItem={() => {}}/>
+        <IngredientList ingredients={ingredientsState} onRemoveItem={removeIngredientHandler}/>
       </section>
     </div>
   );
